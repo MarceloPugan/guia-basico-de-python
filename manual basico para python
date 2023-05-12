@@ -1,0 +1,488 @@
+Manual basico (que aprendi) com Pyhton
+
+IMPORT, -> serve para importar bibliotecas, muitas das vezes tem que exercer a função "PIP INSTALL...(escreva a biblioteca após o pip install)" no pront de comando para instalar a biblioteca, como o caso do "PYGAME"
+
+obs.: quando for usado import, ele pode ser substituido por "from (biblioteca referida) import *", o "*" server para baixar toda a biblioteca sem precisar ter que escreve-la sempre.
+
+PRINT("") -> escreve em tela a frase dentro das hapas
+	Ex.: print("olá mundo!")
+
+STRINGS -> são letras e palavras que são escritas
+	Ex.: carro='charger'
+
+INT e VAR -> são os numeros que são escritos, "int" são os numero escritos sem dizimas, e "var" são os numeros quebrados, e vale resaltar que não se pode escrever numero quebrado usando virgula e sim ponto.
+
+INPUT -> seguinto a palavra para definir a classe, com a função "input", define qual o objeto, e após isso, vem as funções "if", "elif" e "else", que servem para definir escolha.
+
+obs.: quando colocar o input, logo abaixo tem ter o if, na mesmo angulo.
+
+IF -> é a primeira opção sempre. Obs. sempre terminar com dois pontos ":" após o uso do IF para definir a consequencia.
+Se o IF for usado para String, ou no caso palavras, coloqueas dentro de parenteses, se for para numeros ou equações matematicas, não.
+
+obs.: após o uso do primeiro IF, tanto quanto no elif e no else, tem que ter no final os ":" e abaixo começar com um tab de diferença da linha de cima.
+
+ELIF -> pode ser usada como segunda opção, e pode ser usada inumeras vezes, mas nunca como a ultima opção, e pode ser também substituida pela opção IF.
+
+ELSE -> é sempre a ultima opção, ou caso já tenha definido todas as opções usando "IF" e "ELIF", o "ELSE" serve para caso não tenha sido escolhido nenhuma das opções apresentadas.
+
+WHILE -> é a função criada para o que ocorre equanto o codigo principal está rodando sendo seguido de "True" ou "False", Obs. é importante observar que a primeira letra dessas duas opções são maiusculas.
+
+True -> traduzido literalmente como "verdeira", pode ser após a função "WHILE" que mostra que está ativo
+
+False -> "falso", seguido da função "WHILE", define que a função está desligada, ou não iniciada, até após alguma escolha mostrar "while true", que pode mudar isso.
+
+Break -> Serve para interromper a função "WHILE" se executada previamente.
+
+----planilha de excel----
+
+
+para criar planilhas com python, antes instale o pacote openpylx, no pront de comando.
+e coloque a função "import openpylx" após isso, use o seguinte comando
+
+relatorio = openpyxl.Workbook()
+print(relatorio.sheetnames)
+relatorio.create_sheet('relatorio do atendimento')
+relatorio_page = relatorio['relatorio do atendimento']
+relatorio_page.append([ data, nome, matricula, 'troca de mouse', 'muito bom'])
+relatorio.save('Relatorio de atendimento.xlsx')
+
+diferente de outros casos em que se tem que definir a classe do objeto antes, a biblioteca "openpylx", já permite o uso de comandos como: "relatorio, relatorio_page" desde que, você defina antes que "relatorio" = openpylx.workbook()
+
+----envio de email----
+
+
+para criar e enviar e-mail, é necessário a ter a versão 3.9 ou acima do python, pois nela está incluida a biblioteca "smtplib", não necessitando a instalação dela, mas ainda é necessário importa-la.
+e em conjunto com ela colocar a função: "from email.message import EmailMessage", obs: importante escrever as letras maiusculas e minusculas para havaliar a diferença de classes e variaveis.
+
+após isso, defina o e-mail(de preferencia do google) que vai enviar a senha para acesso:
+
+EMAIL_ADDRESS = "colocar o e-mail completo aqui"
+EMAIL_PASSWORD = "colocar exatamente a senha aqui"
+
+msg = EmailMessage()
+msg['Suject'] = 'titulo do email'
+msg['from'] = 'nome da pessoal/robo que vai enviar'
+msg['To'] = "email para qual vai enviar"  
+msg.set_content('texto que vai ser escrito no corpo do email ')
+with smtplib.SMTP_SSL('smtp.gmail.com',465) as smtp:
+	smtp.login(EMAIL_ADDRESS,EMAIL_PASSWORD)
+	smtp.send_message(msg)
+
+verificar se o e-mail, não está bloqueando por perceber que é para um de um robo.
+
+----criação de inteface/janela----
+
+
+o python vem com a ferramenta nativa "tkinter" que permite a criação de janela e interface
+
+1 - defina a classe do objeto que vai criar a janela/interface sendo igual a "tk()" ou "tKinter.tk()"
+
+2 - titulo - segue o seguinte comando: "nome da classe que você deu".title("tiulo que tu quer")
+
+3 - tamanho da tela - segue o seguinte comando: janela.geometry("600x400") obs.: o tamanho pode ser mudado.
+
+4 - cor de fundo entre definições de cores para outras coisas seguir o seguinte comando: "nome da classe que você deu".configure(background="#000") 
+
+5 - cor de cima entre definições 
+
+
+----Exemplo com todos os uso acima(menos interface)----(chatbot)
+
+
+# Criado e desenvolvido por: Marcelo Pugan
+
+
+from datetime import datetime
+import os
+import smtplib
+import openpyxl
+import ast 
+from email.message import EmailMessage
+
+data = datetime.now()
+
+EMAIL_ADDRESS = 'puganchatbot@gmail.com'
+EMAIL_PASSWORD = '************'
+
+nome = input('qual o seu nome? ')
+matricula = input('qual a sua matrícula? ')
+email_colaborador = input('Pode me informar um e-mail para contato? ')
+print('\nOlá,',nome ,matricula, ', eu sou o chatbot do service desk, em que posso lhe ajudar? \n\n')
+while True:    
+    print('Você teria problema com: ')
+    resposta = input('[1]hardware ou \n[2]software? \n\n')
+    if(resposta == '1'): 
+        print('O seu problema com hardware seria com:\n ')
+        resposta2 = input('[1]periféricos, no \n[2]gabinete ou \n[3]celular? \n\n')
+        if(resposta2 == '1'):
+            print('O problema com um periférico é de: \n')
+            resposta4 = input('[1]entrada ou de \n[2]saída? \n\n')
+            if(resposta4 == '1'):
+                print('O periférico em questão é um \n')
+                periferico1 = input('[1]mouse, \n[2]teclado, \n[3]microfone ou \n[4]webcam? \n\n')
+                if(periferico1 == '1'):
+                    print('Será aberto um chamado para a substituição do seu mouse. \n')
+                    print('antes de finalizarmos, pode avaliar como foi meu atendimento? \n')
+                    feedback = input('[1]muito bom \n[2]bom \n[3]médio \n[4]ruim \n[5]muito ruim \n\n')
+                    if(feedback=='1'):
+                        relatorio = openpyxl.Workbook()
+                        print(relatorio.sheetnames)
+                        relatorio.create_sheet('relatorio do atendimento')
+                        relatorio_page = relatorio['relatorio do atendimento']
+                        relatorio_page.append([ data, nome, matricula, 'troca de mouse', 'muito bom'])
+                        relatorio.save('Relatorio de atendimento.xlsx')
+                        msg = EmailMessage()
+                        msg['Suject'] = 'Feedback do atendimento do chatbot'
+                        msg['from'] = 'pugan chatbot'
+                        msg['To'] = email_colaborador 
+                        msg.set_content('esse é o e-mail de confirmação do atendimento ocorrido. ')
+                        with smtplib.SMTP_SSL('smtp.gmail.com',465) as smtp:
+                            smtp.login(EMAIL_ADDRESS,EMAIL_PASSWORD)
+                            smtp.send_message(msg)
+                        break
+                    if(feedback=='2'):    
+                        relatorio = openpyxl.Workbook()
+                        print(relatorio.sheetnames)
+                        relatorio.create_sheet('relatorio do atendimento')
+                        relatorio_page = relatorio['relatorio do atendimento']
+                        relatorio_page.append([  data, nome, matricula, 'troca de mouse', 'bom',])
+                        relatorio.save('Relatorio de atendimento.xlsx')
+                        msg = EmailMessage()
+                        msg['Suject'] = 'Feedback do atendimento do chatbot'
+                        msg['from'] = 'pugan chatbot'
+                        msg['To'] = email_colaborador 
+                        msg.set_content('esse é o e-mail de confirmação do atendimento ocorrido. ')
+                        with smtplib.SMTP_SSL('smtp.gmail.com',465) as smtp:
+                            smtp.login(EMAIL_ADDRESS,EMAIL_PASSWORD)
+                            smtp.send_message(msg)
+                        break
+                    if(feedback=='3'):    
+			...
+
+            elif(resposta7 == '2'):    
+                print('Sobre o programa em questão. ')
+                programa_manutecao = input('Escreva por favor o nome e a versão: \n\n')
+                print('abriremos um chamado para a manutençaõ do ',programa_manutecao)
+                print('\nNesse caso, vamos concluir o cadastro dos seus dados: \n')
+                inventario = input('Qual o inventário do seu computador: \n')
+                localicade = input('A a localização do seu setor? \n')
+                telefone = input('Informe, por favor, um telefone de contato: \n')
+                print('Será aberto um chamado com os seguintes dados: ',data,'\n',nome,'\n',matricula,'\n',inventario,'\n',localicade,'\n',telefone,'\n',programa_manutecao )
+                print('\nEssa orientação lhe ajudou?\n')
+                conclusao = input('[s]im ou [n]ão \n')
+                if(conclusao=='s'):
+			...
+    else:
+        print('Não entendi')
+        nao_entendi = input('gostaria de \n[1]recomeçar ou \n[2]abrir um chamado? \n')
+        if(nao_entendi == '1'):
+            print('Recomeçando...')
+        if(nao_entendi == '2'):
+            print('\nNesse caso, vamos concluir o cadastro dos seus dados: \n')
+            inventario = input('Qual o inventário do seu computador: \n')
+            localicade = input('A a localização do seu setor? \n')
+            telefone = input('Informe, por favor, um telefone de contato: \n')
+            print('Será aberto um chamado com os seguintes dados: \n',data,'\n',nome,'\n',matricula,'\n',inventario,'\n',localicade,'\n',telefone )
+            print('\nEssa orientação lhe ajudou?\n')
+            conclusao = input('[s]im ou [n]ão \n')
+            if(conclusao =='s'):
+                print('pode avaliar como foi meu atendimento? \n')
+                feedback = input('[1]muito bom \n[2]bom \n[3]médio \n[4]ruim \n[5]muito ruim \n\n')
+                if(feedback=='1'):    
+                    relatorio = openpyxl.Workbook()
+                    print(relatorio.sheetnames)
+                    relatorio.create_sheet('relatorio do atendimento')
+                    relatorio_page = relatorio['relatorio do atendimento']
+                    relatorio_page.append([  data, nome, matricula, 'resolvido', 'muito bom',])
+                    relatorio.save('Relatorio de atendimento.xlsx')
+                    msg = EmailMessage()
+                    msg['Suject'] = 'Feedback do atendimento do chatbot'
+                    msg['from'] = 'pugan chatbot'
+                    msg['To'] = email_colaborador 
+                    msg.set_content('esse é o e-mail de confirmação do atendimento ocorrido. ')
+                    with smtplib.SMTP_SSL('smtp.gmail.com',465) as smtp:
+                        smtp.login(EMAIL_ADDRESS,EMAIL_PASSWORD)
+                        smtp.send_message(msg)
+                    break
+                if(feedback=='2'):    
+			...
+
+ 
+
+-------exemplo de interface feita em python---------
+
+
+
+
+import os
+from tkinter import *
+
+c=os.path.dirname(__file__)
+nomeArquivo=c+"\\cadastro.txt"
+
+
+def impDados():
+    arquivo=open(nomeArquivo, "a")
+    arquivo.write("matricula : %s" %vmatricula.get())
+    arquivo.write("\nnome      : %s" %vnome.get())
+    arquivo.write("\ne-mail    : %s" %vemail.get())
+    arquivo.write("\ntelefone  : %s" %vfone.get())
+    arquivo.write("\n\n")
+    arquivo.close()
+
+janela = Tk()
+janela.title("Service Desk Bot")
+janela.geometry("400x240")
+janela.configure(background="#004")
+
+sair=exit
+
+while True:
+    Label(janela, text="matricula : ", background="#dde",foreground="#002",anchor=W).place(x=20,y=20,width=80,height=20)
+    vmatricula=Entry(janela)
+    vmatricula.place(x=90,y=20,width=180,height=20)
+
+    Label(janela, text="nome : ", background="#dde",foreground="#002",anchor=W).place(x=20,y=60,width=80,height=20)
+    vnome=Entry(janela)
+    vnome.place(x=70,y=60,width=200,height=20)
+
+    Label(janela, text="e-mail : ", background="#dde",foreground="#002",anchor=W).place(x=20,y=100,width=80,height=20)
+    vemail=Entry(janela)
+    vemail.place(x=70,y=100,width=200,height=20)
+
+    Label(janela, text="telefone : ", background="#dde",foreground="#002",anchor=W).place(x=20,y=140,width=80,height=20)
+    vfone=Entry(janela)
+    vfone.place(x=80,y=140,width=190,height=20)
+  
+    botao = Button(janela, text='Entrar')
+    botao.grid(column=1, row=1, padx=20 ,pady=180)
+    botao.configure(background="#007", foreground="#fff")
+
+    botao = Button(janela, text='Cadastrar')
+    botao.grid(column=2, row=1, padx=20 ,pady=180)
+    botao.configure(background="#007", foreground="#fff", command= impDados)
+
+    botao = Button(janela, text='Sair')
+    botao.grid(column=3, row=1, padx=20 ,pady=180)
+    botao.configure(background="#007", foreground="#fff", command= sair )
+
+  
+
+
+    janela.mainloop()
+
+
+---------------exemplo de game feito com pygame(snake(cobrinha, não confundi com snake da série metal gear))--------------
+
+
+import pygame
+import random
+import time
+
+pygame.init()
+
+width, height = 400, 400
+game_screen = pygame.display.set_mode((width, height))
+pygame.display.set_caption("snake")
+
+x, y = 200, 200
+delta_x, delta_y = 10, 0
+
+food_x, food_y = random.randrange(0, width)//10*10, random.randrange(0, height)//10*10
+
+coco_x, coco_y = random.randrange(0, width)//10*10, random.randrange(0, height)//10*10
+
+clock = pygame.time.Clock()
+
+body_list = [(x, y)]
+
+game_over = False
+
+funcionando = True
+
+tecla = pygame.key.get_pressed()
+
+font = pygame.font.SysFont("bahnschrift", 25)
+
+def snake():
+    global x, y, food_x, food_y, coco_x, coco_y, game_over
+    x = (x + delta_x)%width
+    y = (y + delta_y)%height
+
+    if((x, y) in body_list):
+        game_over = True
+        return
+
+    body_list.append((x, y))
+
+    if(coco_x == x and coco_y == y):
+        game_over = True
+        return
+
+    if(food_x == x and food_y == y):
+        while((food_x, food_y) in body_list):
+            food_x, food_y = random.randrange(0, width)//10*10, random.randrange(0, height)//10*10
+    else:
+        del body_list[0]
+
+
+    game_screen.fill((210, 180, 140))
+    score = font.render('score: ' + str(len(body_list)), True, (255, 255, 0))
+    game_screen.blit(score, [0, 0])
+    pygame.draw.rect(game_screen, (0, 0, 0), [coco_x, coco_y, 10, 10])
+    pygame.draw.rect(game_screen, (255, 0, 0), [food_x, food_y, 10, 10])
+    for (i,j) in body_list:
+        pygame.draw.rect(game_screen, (0, 139, 139), [i, j, 10, 10])
+    pygame.display.update()
+
+while funcionando:
+
+    if(game_over):
+        game_screen.fill((0, 0, 0,))
+        score = font.render("score: " + str(len(body_list)), True, (255, 255, 0))
+        game_screen.blit(score, [0, 0])
+        msg = font.render("FIM DE JOGO!", True, (255, 255, 255))
+        game_screen.blit(msg, [width//3, height//3])
+        pygame.display.update()
+        time.sleep(10)
+        pygame.quit()
+        quit()
+    events = pygame.event.get()
+
+# Comandos para o teclado... há outros comandos também, que possam ser utilizados de outra forma, mas isso vai de jogo, para jogo.
+
+    for event in events:
+        if(event.type == pygame.QUIT):
+            pygame.quit()
+            quit()
+        if(event.type == pygame.KEYDOWN):    
+            if(event.key == pygame.K_LEFT):
+                if(delta_x != 10):
+                    delta_x = -10
+                delta_y = 0
+            elif(event.key == pygame.K_RIGHT):
+                if(delta_x != -10):
+                    delta_x = 10
+                delta_y = 0
+            elif(event.key == pygame.K_UP):
+                delta_x = 0
+                if(delta_y != 10):
+                    delta_y = -10
+            elif(event.key == pygame.K_DOWN):
+                delta_x = 0
+                if(delta_y != -10):
+                    delta_y = 10
+        tecla = pygame.key.get_pressed()
+        if tecla[pygame.K_q]:
+                funcionando = False     
+        else:
+            continue                 
+            
+    if(not events):
+        snake()    
+    clock.tick(20)
+
+
+----------Transformando o seu arquivo python em um arquivo .EXE ----------------
+
+
+# Caso você queira compartilhar seu arquivo, com alguém que não tenha python instalado em sua maquina, pode fazer isso, transformando o arquivo em .exe
+
+# primeiro vá no seu CMD como administrador e execute o seguinte comando para instalar o conversor:
+
+		pip install pyinstaller
+
+# após isso no CMD, com o pyinstaller tendo conclúido a instalação, execute o seguinte comando:
+	
+		pyinstaller --onefile "arquivo que você queira criar o executavel"
+
+# Após isso, irá aparecer em sua area de trabalho duas pastas: "builder" e "dist".
+
+# Seu arquivo executavel estará na pasta "dist", e você poderá compartilhar com outros para testar, os arquivos na pasta "builder" são os arquivos criados na conversão, você poderá exclui-los se preferir.
+ 
+
+----------Criando arquivo instalador(.MSI)--------------------
+
+
+# para criar um arquivo instalador(.MSI), primeira mente execute o seguinte comando no CMD como adminsitrador: pip install auto-py-to-exe
+
+# para executar o auto-py-to-exe é só escrever o comando "auto-py-to-exe" no CMD, que irá abrir a janela com o conversor.
+	obs.: é necessário ter instalado em seu computador o "chrome"(browser) para abrir a janela.
+
+
+----------Criando scripts de python para windows--------------
+
+# execute a primeira linha: import os, não é necessário instalar, pois ele jé é nativo do python
+
+# depois disso execute a linha de comando:
+	os.system('o comando de CMD que você conhece').
+
+	Ex.: 
+	
+	import os
+
+	os.system('shutdown /s /t 1')
+
+
+--------Automação em python-----------------
+
+
+import pyautogui (para puxar a biblioteca após a instalação no CMD)
+
+pyautogui.sleep(4) - função para esperar o mouse por (4) segundos
+print(pyautogui.position()) - função para mostrar a posição do mouse ns tela
+
+pyautogui.write - escreve, desde que dentro ("")
+pyautogui.keyDonw - precionar a tecla(e manter a tecla precionada)
+pyautogui.keyUp - soltar a tecla qua antes foi precionada
+pyautogui.press - precionar de forma rapida
+pyautogui.pause = X - tampo de pausa entre as funções(X = segundo)
+pyautogui.locateOnScreen('colocar a figura aqui') - função para localiar figura na tela
+
+Obs.: caso ('The Pillow package is required to use this function.') essa erro apareça,
+utilize o codigo: pip install Pillow --upgrade no CMD, para corrigi-lo
+
+
+------Comando de Audio------- 
+
+necessário instalar as bibliotecas "pyaudio" e "speechrecognition" 
+
+import speech_recognition as sr  #sistema para ativar o comando de voz
+import os #sistema para executar funções no computador
+import pyautogui as pag #sistema para executar automações no computador
+
+def ouvir_microfone():
+
+    microfone = sr.Recognizer()
+
+    with sr.Microphone() as source:
+
+        microfone.adjust_for_ambient_noise(source)
+
+        print("diga alguma coisa: ")
+
+        audio = microfone.listen(source)
+
+    try:
+
+        frase = microfone.recognize_google(audio,language='pt-BR')
+
+        print("você disse: " + frase)
+
+        if "navegador" in frase:
+            os.system("start Chrome.exe")
+
+        if "outlook" in frase:
+            os.system("start Outlook.exe") 
+
+
+
+    except sr.UnknownValueError:
+        print("não fez sentido o que você disse")
+
+    return frase
+
+ouvir_microfone()       
+
+
+
