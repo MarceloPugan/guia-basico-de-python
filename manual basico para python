@@ -1,8 +1,10 @@
 Manual basico (que aprendi) com Pyhton
 
-IMPORT, -> serve para importar bibliotecas, muitas das vezes tem que exercer a função "PIP INSTALL...(escreva a biblioteca após o pip install)" no pront de comando para instalar a biblioteca, como o caso do "PYGAME"
+IMPORT, -> serve para importar bibliotecas, muitas das vezes tem que exercer a função "PIP INSTALL...(escreva a biblioteca após o pip install)" no pront de comando para instalar a biblioteca, como o caso do "pyautogui"
 
-obs.: quando for usado import, ele pode ser substituido por "from (biblioteca referida) import *", o "*" server para baixar toda a biblioteca sem precisar ter que escreve-la sempre.
+obs¹.: Para executar a função "pip install..." precisa ser administrador no CMD, ou pode ser executado como usuário no Visual Studio Code, na area de terminal de deles.
+
+obs².: quando for usado import, ele pode ser substituido por "from (biblioteca referida) import *", o "*" server para baixar toda a biblioteca sem precisar ter que escreve-la sempre.
 
 PRINT("") -> escreve em tela a frase dentro das hapas
 	Ex.: print("olá mundo!")
@@ -25,6 +27,17 @@ ELIF -> pode ser usada como segunda opção, e pode ser usada inumeras vezes, ma
 
 ELSE -> é sempre a ultima opção, ou caso já tenha definido todas as opções usando "IF" e "ELIF", o "ELSE" serve para caso não tenha sido escolhido nenhuma das opções apresentadas.
 
+
+Ex.: 
+
+
+resposta = input("identifique-se: ")
+if(resposta=="marcelo"):
+	print("autorizado")
+else:
+	print("negado")
+
+
 WHILE -> é a função criada para o que ocorre equanto o codigo principal está rodando sendo seguido de "True" ou "False", Obs. é importante observar que a primeira letra dessas duas opções são maiusculas.
 
 True -> traduzido literalmente como "verdeira", pode ser após a função "WHILE" que mostra que está ativo
@@ -32,6 +45,19 @@ True -> traduzido literalmente como "verdeira", pode ser após a função "WHILE
 False -> "falso", seguido da função "WHILE", define que a função está desligada, ou não iniciada, até após alguma escolha mostrar "while true", que pode mudar isso.
 
 Break -> Serve para interromper a função "WHILE" se executada previamente.
+
+
+Ex.:
+
+
+while True:    
+    resposta = input("identifique-se: ")
+    if(resposta=="marcelo"):
+        print("autorizado")
+    else:
+        print("negado")
+        break
+
 
 ----planilha de excel----
 
@@ -209,7 +235,7 @@ while True:
 
  
 
--------exemplo de interface feita em python---------
+-------exemplo de interface feita em python(com cadastrador de banco de dados)---------
 
 
 
@@ -270,6 +296,51 @@ while True:
 
 
     janela.mainloop()
+
+
+----------Criando bloco de notas com python--------
+
+
+import tkinter as tk
+from tkinter import filedialog
+
+def abrir_arquivo():
+    arquivo = filedialog.askopenfilename(defaultextension=".txt",
+                                         filetypes=[("Arquivos de Texto", "*.txt"),
+                                                    ("Todos os Arquivos", "*.*")])
+    if arquivo:
+        with open(arquivo, "r") as f:
+            conteudo = f.read()
+            texto.delete("1.0", tk.END)
+            texto.insert(tk.END, conteudo)
+
+def salvar_arquivo():
+    arquivo = filedialog.asksaveasfilename(defaultextension=".txt",
+                                           filetypes=[("Arquivos de Texto", "*.txt"),
+                                                      ("Todos os Arquivos", "*.*")])
+    if arquivo:
+        conteudo = texto.get("1.0", tk.END)
+        with open(arquivo, "w") as f:
+            f.write(conteudo)
+
+root = tk.Tk()
+root.title("Bloco de Notas")
+
+texto = tk.Text(root)
+texto.pack(fill=tk.BOTH, expand=True)
+
+menu_bar = tk.Menu(root)
+root.config(menu=menu_bar)
+
+arquivo_menu = tk.Menu(menu_bar, tearoff=0)
+menu_bar.add_cascade(label="Arquivo", menu=arquivo_menu)
+arquivo_menu.add_command(label="Abrir", command=abrir_arquivo)
+arquivo_menu.add_command(label="Salvar", command=salvar_arquivo)
+arquivo_menu.add_separator()
+arquivo_menu.add_command(label="Sair", command=root.quit)
+
+root.mainloop()
+
 
 
 ---------------exemplo de game feito com pygame(snake(cobrinha, não confundi com snake da série metal gear))--------------
@@ -429,19 +500,54 @@ while funcionando:
 
 import pyautogui (para puxar a biblioteca após a instalação no CMD)
 
-pyautogui.sleep(4) - função para esperar o mouse por (4) segundos
-print(pyautogui.position()) - função para mostrar a posição do mouse ns tela
+# função para esperar o mouse por (4) segundos
+pyautogui.sleep(4)
 
-pyautogui.write - escreve, desde que dentro ("")
-pyautogui.keyDonw - precionar a tecla(e manter a tecla precionada)
-pyautogui.keyUp - soltar a tecla qua antes foi precionada
-pyautogui.press - precionar de forma rapida
-pyautogui.pause = X - tampo de pausa entre as funções(X = segundo)
-pyautogui.locateOnScreen('colocar a figura aqui') - função para localiar figura na tela
+# função para mostrar a posição do mouse ns tela
+print(pyautogui.position())
+
+# escreve, desde que dentro ("")
+pyautogui.write 
+
+# precionar a tecla(e manter a tecla precionada)
+pyautogui.keyDonw 
+
+# soltar a tecla qua antes foi precionada
+pyautogui.keyUp 
+
+# precionar de forma rapida
+pyautogui.press
+
+# tampo de pausa entre as funções(X = segundo)
+pyautogui.pause = X 
+
+# função para localiar figura na tela
+pyautogui.locateOnScreen('colocar a figura aqui') 
 
 Obs.: caso ('The Pillow package is required to use this function.') essa erro apareça,
 utilize o codigo: pip install Pillow --upgrade no CMD, para corrigi-lo
 
+
+------Criando localizador em tempo real do mouse para uso de automação--------
+
+import tkinter as tk
+import pyautogui
+
+def atualizar_posicao():
+    x, y = pyautogui.position()
+    posicao_label.config(text=f"Posição do Mouse: {x}, {y}")
+    posicao_label.after(100, atualizar_posicao)
+
+root = tk.Tk()
+root.title("Posição do Mouse")
+root.configure(bg='black')
+
+posicao_label = tk.Label(root, text="Posição do Mouse: ", font=("Arial", 14), bg='black', fg='white')
+posicao_label.pack(padx=20, pady=20)
+
+atualizar_posicao()
+
+root.mainloop()
 
 ------Comando de Audio------- 
 
@@ -484,5 +590,28 @@ def ouvir_microfone():
 
 ouvir_microfone()       
 
+------agendar tarefas com python------
 
+Para criar funções que serão escutadas em horarios especificos com python sem a necessidade de usar o agendador de tarefas do windows(recomendado quando for usar em outro sistema operacional)
 
+utilize das bibliotecas "schedule" e "time".
+
+a biblioteca "schedule" serve para iniciar a atividade no momento requisitado, enquanto que a biblioteca "time" serve para definir o momento
+
+Exemplo: 
+
+import os
+import time
+import schedule
+import tkinter
+
+def tarefa():
+    print("teste 1 concluido")
+
+# Agendar a tarefa para ser executada todos os dias às 11 horas
+schedule.every().day.at("09:44").do(tarefa)
+
+# Executar o agendador em segundo plano
+while True:
+    schedule.run_pending()
+    time.sleep(1)
