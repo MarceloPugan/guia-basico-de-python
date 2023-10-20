@@ -1,491 +1,277 @@
-Manual basico (que aprendi) com Pyhton
 
-IMPORT, -> serve para importar bibliotecas, muitas das vezes tem que exercer a função "PIP INSTALL...(escreva a biblioteca após o pip install)" no pront de comando para instalar a biblioteca, como o caso do "pyautogui"
+Manual básico para Python
 
-obs¹.: Para executar a função "pip install..." precisa ser administrador no CMD, ou pode ser executado como usuário no Visual Studio Code, na area de terminal de deles.
+1 - Instalação;
+2 - Uso de IDE;
+3 – Uso e importação de bibliotecas;
+4 - Criação do primeiro programa “Olá mundo” e introdução a comandos;
+5 – Conhecimento de “INPUT”, “IF”, ”ELIF” e “ELSE”;
+6 - Loop(repetição), uso do “While TRUE” e “break”;
+7 – Definição de objetos;
+8 - Criação e alteração de arquivos de texto;
+9 - Uso de comandos de CMD;
+10 - Criação de interface gráfica(uso da biblioteca “tKinter”);
+11 - Criação e uso de automação(uso das bibliotecas “keyboard”, ”mouse” e “pyautogui”);
+12 – Agendar tarefas (uso das bibliotecas: “schedule” e “time”);
+13 – Editar planilhas (uso da biblioteca “pywin32”);
+14 – Criação de um arquivo executável (uso da biblioteca “pyinstaller”);
+15 – Comando de/por áudio;
+16 – Exemplos de códigos;
 
-obs².: quando for usado import, ele pode ser substituido por "from (biblioteca referida) import *", o "*" server para baixar toda a biblioteca sem precisar ter que escreve-la sempre.
+------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
-PRINT("") -> escreve em tela a frase dentro das hapas
-	Ex.: print("olá mundo!")
+1 – Instalação:
+
+Para realizar a instalação de Python, acesse https://www.python.org/downloads/ e realize o download do instalador compatível com o seu sistema operacional
+
+Obs.: o modelo usado nesse manual é 3.11.4
+
+Na instalação:
+
+	1 - Após baixar o instalador compatível com seu sistema operacional, clique no executável
+
+2 - Marque a caixa "Add python.exe to path" e clique em "Customize installation" 
+ 
+3 - Não desmarque nada e clique em "next";
+
+4 - Clique nas caixas 
+			"Install Python (versão baixada) for all users"
+			"Download debugging symbols"
+			"Download debug binaries (requires VS 2017 or later)"
+4.1 - Tendo todas as caixa selecionadas, clique em "Install"
+
+5 - Após a instalação, clique em "Disable path length limit" e depois "close"
+
+
+------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+2 – Uso de “IDE”:
+
+Python, contém diversas IDEs, como pycharm, Júpiter, entre outros.
+Para uso desse manual, será citado o Visual Studio Code, IDE gratuito lançado pela Microsoft.
+
+Instalação do visual studio code:
+
+1 - Acesse o link "https://code.visualstudio.com" e clique no botão de "download" para o seu sistema operacional 
+
+2 - Clique no instalador, concorde com os termos e clique em "Próximo";
+
+3 - Não mude o caminho da instalação, e clique em "Próximo";
+
+4 - Não mude o caminho da pasta que irá criar, não clique em "não criar uma pasta no Menu Inicial" e clique em "Próximo";
+
+5 - Defina quais caixas quer marcar e clique em "Próximo"
+
+6 - Clique em "Instalar";
+
+7 - Aguarde a instalação e clique em "Concluir"
+
+8 - Após a instalação, clique em "Extensions" na caixa de pesquisa procure por "python", e clique no botão azul "Install";
+
+9 - Criar um primeiro código de teste, clique em "Select Python interprete", no canto inferior direito que irá aparecer;
+
+------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+3 - Uso e importação de bibliotecas:
+
+IMPORT, -> serve para importar bibliotecas, muitas das vezes tem que exercer a função "PIP INSTALL...(escreva a biblioteca após o pip install)" no prompt de comando para instalar a biblioteca, como o caso do "pyautogui"
+
+obs¹.: Para executar a função "pip install..." precisa ser administrador no CMD, ou pode ser executado como usuário no Visual Studio Code, na área de terminal de deles.
+
+obs².: quando for usado import, ele pode ser substituído por "from (biblioteca referida) import *", o "*" serve para baixar toda a biblioteca sem precisar ter que escrevê-la sempre.
+
+Para desinstalar, utilize o comando “uninstall”, como no exemplo “pip uninstall (biblioteca)”;
+
+
+Para atualizar, utilize o comando “-upgrade” seguido do comando “install”, como no exemplo “pip install -upgrade (biblioteca)”
+
+Para listar as bibliotecas instaladas e suas versões, utilize apenas o comando “pip list”.
+
+------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+4 – Criação do primeiro programa “Olá mundo” e introdução a comandos:
+
+Para comentar nos códigos de python, utilize “#” antes da frase a palavra escrita, ou “””(3 aspas) na linha inicial e final, caso queira comentar mais de uma linha.
+
+PRINT("") -> escreve em tela a frase dentro das aspas;
+	
+Ex.: 
+print("olá mundo!") 
 
 STRINGS -> são letras e palavras que são escritas
-	Ex.: carro='charger'
+	Ex.: 
+carro='charger'
 
-INT e VAR -> são os numeros que são escritos, "int" são os numero escritos sem dizimas, e "var" são os numeros quebrados, e vale resaltar que não se pode escrever numero quebrado usando virgula e sim ponto.
+INT e VAR -> são os números que são escritos, "int" são os números escritos inteiros, e "var" são os números quebrados, e vale ressaltar que não se pode escrever número quebrado usando virgula e sim ponto.
 
-INPUT -> seguinto a palavra para definir a classe, com a função "input", define qual o objeto, e após isso, vem as funções "if", "elif" e "else", que servem para definir escolha.
+------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
-obs.: quando colocar o input, logo abaixo tem ter o if, na mesmo angulo.
+5 – Conhecimento de “INPUT”, “IF”, ”ELIF” e “ELSE”:
 
-IF -> é a primeira opção sempre. Obs. sempre terminar com dois pontos ":" após o uso do IF para definir a consequencia.
-Se o IF for usado para String, ou no caso palavras, coloqueas dentro de parenteses, se for para numeros ou equações matematicas, não.
+INPUT -> seguindo a palavra para definir a classe, com a função "input", define qual o objeto, e após isso, vem as funções "if", "elif" e "else", que servem para definir escolha.
+
+obs.: quando colocar o input, logo abaixo tem de ter o if, no mesmo angulo.
+
+IF -> É a primeira opção sempre. Obs. sempre terminar com dois pontos ":" após o uso do IF para definir a consequência.
+Se o IF for usado para String, ou no caso palavras, coloque-as dentro de parênteses, se for para números ou equações matemáticas, não.
 
 obs.: após o uso do primeiro IF, tanto quanto no elif e no else, tem que ter no final os ":" e abaixo começar com um tab de diferença da linha de cima.
 
-ELIF -> pode ser usada como segunda opção, e pode ser usada inumeras vezes, mas nunca como a ultima opção, e pode ser também substituida pela opção IF.
+ELIF -> pode ser usada como segunda opção, e pode ser usada inúmeras vezes, mas nunca como a última opção, e pode ser também substituída pela opção IF.
 
-ELSE -> é sempre a ultima opção, ou caso já tenha definido todas as opções usando "IF" e "ELIF", o "ELSE" serve para caso não tenha sido escolhido nenhuma das opções apresentadas.
+ELSE -> É sempre a última opção, ou caso já tenha definido todas as opções usando "IF" e "ELIF", o "ELSE" serve para caso não tenha sido escolhido nenhuma das opções apresentadas.
 
 
 Ex.: 
 
-
 resposta = input("identifique-se: ")
 if(resposta=="marcelo"):
 	print("autorizado")
+elif(resposta==”carol”):
+	print(“autorizada”)
 else:
 	print("negado")
 
+------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
-WHILE -> é a função criada para o que ocorre equanto o codigo principal está rodando sendo seguido de "True" ou "False", Obs. é importante observar que a primeira letra dessas duas opções são maiusculas.
+6 - Loop(repetição), uso do “While TRUE” e “break”:
 
-True -> traduzido literalmente como "verdeira", pode ser após a função "WHILE" que mostra que está ativo
+WHILE -> É a função criada para o que ocorre enquanto o código principal está rodando sendo seguido de "True" ou "False", Obs. é importante observar que a primeira letra dessas duas opções é maiúscula.
 
-False -> "falso", seguido da função "WHILE", define que a função está desligada, ou não iniciada, até após alguma escolha mostrar "while true", que pode mudar isso.
+True -> traduzido literalmente como "verdadeira", pode ser após a função "WHILE" que mostra que está ativo
+
+False -> "falso", seguido da função "WHILE", define que a função está desligada, ou não iniciada, até após alguma escolha mostrar "while true", que pode mudar isso, podendo ser usada como “return False”;
 
 Break -> Serve para interromper a função "WHILE" se executada previamente.
 
 
 Ex.:
 
-
 while True:    
-    resposta = input("identifique-se: ")
-    if(resposta=="marcelo"):
-        print("autorizado")
-    else:
-        print("negado")
-        break
+resposta = input("identifique-se: ")
+if(resposta=="marcelo"):
+print("autorizado")
+elif(resposta==”carol”):
+print(“autorizada”)
+else:
+print("negado")
+break
 
+------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
-----planilha de excel----
+7 – Definição de objetos:
 
+DEF "objetos" -> É para criar objetos complexos, que possam ser usados nos códigos, sem a necessidade de repeti-los continuamente:
 
-para criar planilhas com python, antes instale o pacote openpylx, no pront de comando.
-e coloque a função "import openpylx" após isso, use o seguinte comando
+Ex.: 
+	def aviso():
+	resposta = input("identifique-se: ")
+if(resposta=="marcelo"):
+print("autorizado")
+elif(resposta==”carol”):
+print(“autorizada”)
+else:
+print("negado")
 
-relatorio = openpyxl.Workbook()
-print(relatorio.sheetnames)
-relatorio.create_sheet('relatorio do atendimento')
-relatorio_page = relatorio['relatorio do atendimento']
-relatorio_page.append([ data, nome, matricula, 'troca de mouse', 'muito bom'])
-relatorio.save('Relatorio de atendimento.xlsx')
+	while True:
+		aviso()
+            		break
 
-diferente de outros casos em que se tem que definir a classe do objeto antes, a biblioteca "openpylx", já permite o uso de comandos como: "relatorio, relatorio_page" desde que, você defina antes que "relatorio" = openpylx.workbook()
+Repare que no exemplo, "def aviso" é seguido de "():", isso é necessário, para mostrar que o código acima, está contido dentro dos parênteses. 
 
-----envio de email----
+e da mesma forma, para referenciar o objeto durante o código, é necessário repetir "()", mas sem a necessidade dos dois pontos para executar o código previamente definido.
 
+------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
-para criar e enviar e-mail, é necessário a ter a versão 3.9 ou acima do python, pois nela está incluida a biblioteca "smtplib", não necessitando a instalação dela, mas ainda é necessário importa-la.
-e em conjunto com ela colocar a função: "from email.message import EmailMessage", obs: importante escrever as letras maiusculas e minusculas para havaliar a diferença de classes e variaveis.
+8 - Criação e alteração de arquivos de texto:
 
-após isso, defina o e-mail(de preferencia do google) que vai enviar a senha para acesso:
+É possível criar, ler e alterar arquivos de texto, seguindo os seguintes comandos:
 
-EMAIL_ADDRESS = "colocar o e-mail completo aqui"
-EMAIL_PASSWORD = "colocar exatamente a senha aqui"
+w  -  Usado somente para escrever
+w+  -  Usado para escrever sobre algo
+r  -  Usado somente para ler
+r+  -  Para ler e escrever algo
+a  -  Para acrescentar
 
-msg = EmailMessage()
-msg['Suject'] = 'titulo do email'
-msg['from'] = 'nome da pessoal/robo que vai enviar'
-msg['To'] = "email para qual vai enviar"  
-msg.set_content('texto que vai ser escrito no corpo do email ')
-with smtplib.SMTP_SSL('smtp.gmail.com',465) as smtp:
-	smtp.login(EMAIL_ADDRESS,EMAIL_PASSWORD)
-	smtp.send_message(msg)
+- Criar arquivo: 
 
-verificar se o e-mail, não está bloqueando por perceber que é para um de um robo.
+Escreva o comando “open” seguido das informações dentro parênteses e aspas, sendo que o arquivo precisa estar devidamente escrito o caminho e tipo de arquivo após o ponto, e em seguida o “W” entre as aspas, pois é o comando para criar o arquivo;
 
-----criação de inteface/janela----
-
-
-o python vem com a ferramenta nativa "tkinter" que permite a criação de janela e interface
-
-1 - defina a classe do objeto que vai criar a janela/interface sendo igual a "tk()" ou "tKinter.tk()"
-
-2 - titulo - segue o seguinte comando: "nome da classe que você deu".title("tiulo que tu quer")
-
-3 - tamanho da tela - segue o seguinte comando: janela.geometry("600x400") obs.: o tamanho pode ser mudado.
-
-4 - cor de fundo entre definições de cores para outras coisas seguir o seguinte comando: "nome da classe que você deu".configure(background="#000") 
-
-5 - cor de cima entre definições 
-
-
-----Exemplo com todos os uso acima(menos interface)----(chatbot)
-
-
-# Criado e desenvolvido por: Marcelo Pugan
-
-
-from datetime import datetime
-import os
-import smtplib
-import openpyxl
-import ast 
-from email.message import EmailMessage
-
-data = datetime.now()
-
-EMAIL_ADDRESS = 'puganchatbot@gmail.com'
-EMAIL_PASSWORD = '************'
-
-nome = input('qual o seu nome? ')
-matricula = input('qual a sua matrícula? ')
-email_colaborador = input('Pode me informar um e-mail para contato? ')
-print('\nOlá,',nome ,matricula, ', eu sou o chatbot do service desk, em que posso lhe ajudar? \n\n')
-while True:    
-    print('Você teria problema com: ')
-    resposta = input('[1]hardware ou \n[2]software? \n\n')
-    if(resposta == '1'): 
-        print('O seu problema com hardware seria com:\n ')
-        resposta2 = input('[1]periféricos, no \n[2]gabinete ou \n[3]celular? \n\n')
-        if(resposta2 == '1'):
-            print('O problema com um periférico é de: \n')
-            resposta4 = input('[1]entrada ou de \n[2]saída? \n\n')
-            if(resposta4 == '1'):
-                print('O periférico em questão é um \n')
-                periferico1 = input('[1]mouse, \n[2]teclado, \n[3]microfone ou \n[4]webcam? \n\n')
-                if(periferico1 == '1'):
-                    print('Será aberto um chamado para a substituição do seu mouse. \n')
-                    print('antes de finalizarmos, pode avaliar como foi meu atendimento? \n')
-                    feedback = input('[1]muito bom \n[2]bom \n[3]médio \n[4]ruim \n[5]muito ruim \n\n')
-                    if(feedback=='1'):
-                        relatorio = openpyxl.Workbook()
-                        print(relatorio.sheetnames)
-                        relatorio.create_sheet('relatorio do atendimento')
-                        relatorio_page = relatorio['relatorio do atendimento']
-                        relatorio_page.append([ data, nome, matricula, 'troca de mouse', 'muito bom'])
-                        relatorio.save('Relatorio de atendimento.xlsx')
-                        msg = EmailMessage()
-                        msg['Suject'] = 'Feedback do atendimento do chatbot'
-                        msg['from'] = 'pugan chatbot'
-                        msg['To'] = email_colaborador 
-                        msg.set_content('esse é o e-mail de confirmação do atendimento ocorrido. ')
-                        with smtplib.SMTP_SSL('smtp.gmail.com',465) as smtp:
-                            smtp.login(EMAIL_ADDRESS,EMAIL_PASSWORD)
-                            smtp.send_message(msg)
-                        break
-                    if(feedback=='2'):    
-                        relatorio = openpyxl.Workbook()
-                        print(relatorio.sheetnames)
-                        relatorio.create_sheet('relatorio do atendimento')
-                        relatorio_page = relatorio['relatorio do atendimento']
-                        relatorio_page.append([  data, nome, matricula, 'troca de mouse', 'bom',])
-                        relatorio.save('Relatorio de atendimento.xlsx')
-                        msg = EmailMessage()
-                        msg['Suject'] = 'Feedback do atendimento do chatbot'
-                        msg['from'] = 'pugan chatbot'
-                        msg['To'] = email_colaborador 
-                        msg.set_content('esse é o e-mail de confirmação do atendimento ocorrido. ')
-                        with smtplib.SMTP_SSL('smtp.gmail.com',465) as smtp:
-                            smtp.login(EMAIL_ADDRESS,EMAIL_PASSWORD)
-                            smtp.send_message(msg)
-                        break
-                    if(feedback=='3'):    
-			...
-
-            elif(resposta7 == '2'):    
-                print('Sobre o programa em questão. ')
-                programa_manutecao = input('Escreva por favor o nome e a versão: \n\n')
-                print('abriremos um chamado para a manutençaõ do ',programa_manutecao)
-                print('\nNesse caso, vamos concluir o cadastro dos seus dados: \n')
-                inventario = input('Qual o inventário do seu computador: \n')
-                localicade = input('A a localização do seu setor? \n')
-                telefone = input('Informe, por favor, um telefone de contato: \n')
-                print('Será aberto um chamado com os seguintes dados: ',data,'\n',nome,'\n',matricula,'\n',inventario,'\n',localicade,'\n',telefone,'\n',programa_manutecao )
-                print('\nEssa orientação lhe ajudou?\n')
-                conclusao = input('[s]im ou [n]ão \n')
-                if(conclusao=='s'):
-			...
-    else:
-        print('Não entendi')
-        nao_entendi = input('gostaria de \n[1]recomeçar ou \n[2]abrir um chamado? \n')
-        if(nao_entendi == '1'):
-            print('Recomeçando...')
-        if(nao_entendi == '2'):
-            print('\nNesse caso, vamos concluir o cadastro dos seus dados: \n')
-            inventario = input('Qual o inventário do seu computador: \n')
-            localicade = input('A a localização do seu setor? \n')
-            telefone = input('Informe, por favor, um telefone de contato: \n')
-            print('Será aberto um chamado com os seguintes dados: \n',data,'\n',nome,'\n',matricula,'\n',inventario,'\n',localicade,'\n',telefone )
-            print('\nEssa orientação lhe ajudou?\n')
-            conclusao = input('[s]im ou [n]ão \n')
-            if(conclusao =='s'):
-                print('pode avaliar como foi meu atendimento? \n')
-                feedback = input('[1]muito bom \n[2]bom \n[3]médio \n[4]ruim \n[5]muito ruim \n\n')
-                if(feedback=='1'):    
-                    relatorio = openpyxl.Workbook()
-                    print(relatorio.sheetnames)
-                    relatorio.create_sheet('relatorio do atendimento')
-                    relatorio_page = relatorio['relatorio do atendimento']
-                    relatorio_page.append([  data, nome, matricula, 'resolvido', 'muito bom',])
-                    relatorio.save('Relatorio de atendimento.xlsx')
-                    msg = EmailMessage()
-                    msg['Suject'] = 'Feedback do atendimento do chatbot'
-                    msg['from'] = 'pugan chatbot'
-                    msg['To'] = email_colaborador 
-                    msg.set_content('esse é o e-mail de confirmação do atendimento ocorrido. ')
-                    with smtplib.SMTP_SSL('smtp.gmail.com',465) as smtp:
-                        smtp.login(EMAIL_ADDRESS,EMAIL_PASSWORD)
-                        smtp.send_message(msg)
-                    break
-                if(feedback=='2'):    
-			...
-
- 
-
--------exemplo de interface feita em python(com cadastrador de banco de dados)---------
-
-
-
-
-import os
-from tkinter import *
-
-c=os.path.dirname(__file__)
-nomeArquivo=c+"\\cadastro.txt"
-
-
-def impDados():
-    arquivo=open(nomeArquivo, "a")
-    arquivo.write("matricula : %s" %vmatricula.get())
-    arquivo.write("\nnome      : %s" %vnome.get())
-    arquivo.write("\ne-mail    : %s" %vemail.get())
-    arquivo.write("\ntelefone  : %s" %vfone.get())
-    arquivo.write("\n\n")
-    arquivo.close()
-
-janela = Tk()
-janela.title("Service Desk Bot")
-janela.geometry("400x240")
-janela.configure(background="#004")
-
-sair=exit
-
-while True:
-    Label(janela, text="matricula : ", background="#dde",foreground="#002",anchor=W).place(x=20,y=20,width=80,height=20)
-    vmatricula=Entry(janela)
-    vmatricula.place(x=90,y=20,width=180,height=20)
-
-    Label(janela, text="nome : ", background="#dde",foreground="#002",anchor=W).place(x=20,y=60,width=80,height=20)
-    vnome=Entry(janela)
-    vnome.place(x=70,y=60,width=200,height=20)
-
-    Label(janela, text="e-mail : ", background="#dde",foreground="#002",anchor=W).place(x=20,y=100,width=80,height=20)
-    vemail=Entry(janela)
-    vemail.place(x=70,y=100,width=200,height=20)
-
-    Label(janela, text="telefone : ", background="#dde",foreground="#002",anchor=W).place(x=20,y=140,width=80,height=20)
-    vfone=Entry(janela)
-    vfone.place(x=80,y=140,width=190,height=20)
-  
-    botao = Button(janela, text='Entrar')
-    botao.grid(column=1, row=1, padx=20 ,pady=180)
-    botao.configure(background="#007", foreground="#fff")
-
-    botao = Button(janela, text='Cadastrar')
-    botao.grid(column=2, row=1, padx=20 ,pady=180)
-    botao.configure(background="#007", foreground="#fff", command= impDados)
-
-    botao = Button(janela, text='Sair')
-    botao.grid(column=3, row=1, padx=20 ,pady=180)
-    botao.configure(background="#007", foreground="#fff", command= sair )
-
-  
-
-
-    janela.mainloop()
-
-
-----------Criando bloco de notas com python--------
-
-
-import tkinter as tk
-from tkinter import filedialog
-
-def abrir_arquivo():
-    arquivo = filedialog.askopenfilename(defaultextension=".txt",
-                                         filetypes=[("Arquivos de Texto", "*.txt"),
-                                                    ("Todos os Arquivos", "*.*")])
-    if arquivo:
-        with open(arquivo, "r") as f:
-            conteudo = f.read()
-            texto.delete("1.0", tk.END)
-            texto.insert(tk.END, conteudo)
-
-def salvar_arquivo():
-    arquivo = filedialog.asksaveasfilename(defaultextension=".txt",
-                                           filetypes=[("Arquivos de Texto", "*.txt"),
-                                                      ("Todos os Arquivos", "*.*")])
-    if arquivo:
-        conteudo = texto.get("1.0", tk.END)
-        with open(arquivo, "w") as f:
-            f.write(conteudo)
-
-root = tk.Tk()
-root.title("Bloco de Notas")
-
-texto = tk.Text(root)
-texto.pack(fill=tk.BOTH, expand=True)
-
-menu_bar = tk.Menu(root)
-root.config(menu=menu_bar)
-
-arquivo_menu = tk.Menu(menu_bar, tearoff=0)
-menu_bar.add_cascade(label="Arquivo", menu=arquivo_menu)
-arquivo_menu.add_command(label="Abrir", command=abrir_arquivo)
-arquivo_menu.add_command(label="Salvar", command=salvar_arquivo)
-arquivo_menu.add_separator()
-arquivo_menu.add_command(label="Sair", command=root.quit)
-
-root.mainloop()
-
-
-
----------------exemplo de game feito com pygame(snake(cobrinha, não confundi com snake da série metal gear))--------------
-
-
-import pygame
-import random
-import time
-
-pygame.init()
-
-width, height = 400, 400
-game_screen = pygame.display.set_mode((width, height))
-pygame.display.set_caption("snake")
-
-x, y = 200, 200
-delta_x, delta_y = 10, 0
-
-food_x, food_y = random.randrange(0, width)//10*10, random.randrange(0, height)//10*10
-
-coco_x, coco_y = random.randrange(0, width)//10*10, random.randrange(0, height)//10*10
-
-clock = pygame.time.Clock()
-
-body_list = [(x, y)]
-
-game_over = False
-
-funcionando = True
-
-tecla = pygame.key.get_pressed()
-
-font = pygame.font.SysFont("bahnschrift", 25)
-
-def snake():
-    global x, y, food_x, food_y, coco_x, coco_y, game_over
-    x = (x + delta_x)%width
-    y = (y + delta_y)%height
-
-    if((x, y) in body_list):
-        game_over = True
-        return
-
-    body_list.append((x, y))
-
-    if(coco_x == x and coco_y == y):
-        game_over = True
-        return
-
-    if(food_x == x and food_y == y):
-        while((food_x, food_y) in body_list):
-            food_x, food_y = random.randrange(0, width)//10*10, random.randrange(0, height)//10*10
-    else:
-        del body_list[0]
-
-
-    game_screen.fill((210, 180, 140))
-    score = font.render('score: ' + str(len(body_list)), True, (255, 255, 0))
-    game_screen.blit(score, [0, 0])
-    pygame.draw.rect(game_screen, (0, 0, 0), [coco_x, coco_y, 10, 10])
-    pygame.draw.rect(game_screen, (255, 0, 0), [food_x, food_y, 10, 10])
-    for (i,j) in body_list:
-        pygame.draw.rect(game_screen, (0, 139, 139), [i, j, 10, 10])
-    pygame.display.update()
-
-while funcionando:
-
-    if(game_over):
-        game_screen.fill((0, 0, 0,))
-        score = font.render("score: " + str(len(body_list)), True, (255, 255, 0))
-        game_screen.blit(score, [0, 0])
-        msg = font.render("FIM DE JOGO!", True, (255, 255, 255))
-        game_screen.blit(msg, [width//3, height//3])
-        pygame.display.update()
-        time.sleep(10)
-        pygame.quit()
-        quit()
-    events = pygame.event.get()
-
-# Comandos para o teclado... há outros comandos também, que possam ser utilizados de outra forma, mas isso vai de jogo, para jogo.
-
-    for event in events:
-        if(event.type == pygame.QUIT):
-            pygame.quit()
-            quit()
-        if(event.type == pygame.KEYDOWN):    
-            if(event.key == pygame.K_LEFT):
-                if(delta_x != 10):
-                    delta_x = -10
-                delta_y = 0
-            elif(event.key == pygame.K_RIGHT):
-                if(delta_x != -10):
-                    delta_x = 10
-                delta_y = 0
-            elif(event.key == pygame.K_UP):
-                delta_x = 0
-                if(delta_y != 10):
-                    delta_y = -10
-            elif(event.key == pygame.K_DOWN):
-                delta_x = 0
-                if(delta_y != -10):
-                    delta_y = 10
-        tecla = pygame.key.get_pressed()
-        if tecla[pygame.K_q]:
-                funcionando = False     
-        else:
-            continue                 
-            
-    if(not events):
-        snake()    
-    clock.tick(20)
-
-
-----------Transformando o seu arquivo python em um arquivo .EXE ----------------
-
-
-# Caso você queira compartilhar seu arquivo, com alguém que não tenha python instalado em sua maquina, pode fazer isso, transformando o arquivo em .exe
-
-# primeiro vá no seu CMD como administrador e execute o seguinte comando para instalar o conversor:
-
-		pip install pyinstaller
-
-# após isso no CMD, com o pyinstaller tendo conclúido a instalação, execute o seguinte comando:
+	Ex.:
 	
-		pyinstaller --onefile "arquivo que você queira criar o executavel"
+	open(“c:/users/usuário_exemplo/desktop/arquivo.txt”,”w”)
 
-# Após isso, irá aparecer em sua area de trabalho duas pastas: "builder" e "dist".
+obs.: na criação do arquivo, ele não precisa ser necessariamente “txt”, podendo ser em qualquer formato, mas a resposta terá retorno apenas se a criação do arquivo, pode ser feita por texto
 
-# Seu arquivo executavel estará na pasta "dist", e você poderá compartilhar com outros para testar, os arquivos na pasta "builder" são os arquivos criados na conversão, você poderá exclui-los se preferir.
- 
+Ex.: bat, html, py, json, doc... entre outros
 
-----------Criando arquivo instalador(.MSI)--------------------
+- Escrever dentro do arquivo criado;
 
+	Execute o comando anterior como um objeto a ser definido, e após isso, com esse objeto, execute em conjunto o comando “write”, e após isso, o que quer escrever dentro de parênteses e aspas.
 
-# para criar um arquivo instalador(.MSI), primeira mente execute o seguinte comando no CMD como adminsitrador: pip install auto-py-to-exe
+	Ex.: 
 
-# para executar o auto-py-to-exe é só escrever o comando "auto-py-to-exe" no CMD, que irá abrir a janela com o conversor.
-	obs.: é necessário ter instalado em seu computador o "chrome"(browser) para abrir a janela.
+	arquivo = open(“c:/users/usuário_exemplo/desktop/arquivo.txt”,”w”)
 
+	arquivo.write(“Olá mundo! “)
 
-----------Criando scripts de python para windows--------------
+- Editar dados em arquivo já existente:
 
-# execute a primeira linha: import os, não é necessário instalar, pois ele jé é nativo do python
+Da mesma forma como criar um novo arquivo, o comando irá apagar os dados existente, e escrever a nova linha informada, com a diferença de haver um “+”, após o “W”, e seguir o comando “read”;
 
-# depois disso execute a linha de comando:
+	Ex.: 
+
+	arquivo = open(“c:/users/usuário_exemplo/desktop/arquivo.txt”,”w+”)
+
+	conteúdo = arquivo.read()
+
+	arquivo.write(“Olá mundo! “)
+
+- Ler conteúdo de arquivos.
+
+Para ler o conteúdo do arquivo, segue o padrão dado anteriormente, mas mudando o comando “W”, para “R”, sendo necessário também o comando “print”, para mostrar o conteúdo lido;
+
+	Ex.: 
+
+	arquivo = open(“c:/users/usuário_exemplo/desktop/arquivo.txt”,”R”)
+
+	conteudo = arquivo.read()
+
+	print(conteudo)
+
+- Para acrescentar informação:
+
+Para acrescentar informação, há duas maneiras, colocar o comando “A” ou colocando o comando “R+”;
+
+	- Usando o comando “A”, é necessário apenas o comando com a localização do arquivo e o comando para escrever o dado a adicionar.
+
+	Ex.: 
+
+	arquivo = open(“c:/users/usuário_exemplo/desktop/arquivo.txt”,”A”)
+	
+	arquivo.write(“texto a ser acrescentado”)
+
+O arquivo citado acima, irá ter a informação acrescentada, após a informação já escrita no arquivo não apagando o dado escrito,
+
+	- Usando o  comando “R+”, é necessário o comando com a localização do arquivo, o comando para escrever o dado a adicionar e o comando “read”, para ler o dado já estabelecido.
+
+	Ex.: 
+
+	arquivo = open(“c:/users/usuário_exemplo/desktop/arquivo.txt”,”R+”)
+
+	conteudo = arquivo.read()
+
+	arquivo.write(“texto a ser acrescentado”)
+
+O código citado acima, pode escrever por cima dos dados escritos, se não posto o comando “read”, diferente quando usado o comando “A”.
+
+------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+9 - Uso de comandos de CMD:
+
+Execute a primeira linha: import os, não é necessário instalar, pois ele já é nativo do python
+
+Depois disso execute a linha de comando:
 	os.system('o comando de CMD que você conhece').
 
 	Ex.: 
@@ -494,124 +280,423 @@ while funcionando:
 
 	os.system('shutdown /s /t 1')
 
+#Serve para desligar o computador.
 
---------Automação em python-----------------
+	os.system('msg * "Aviso do prompt de comando"')
+
+#Serve para criar mensagens de aviso padrão do prompt de comando.
+        
+os.system("start Chrome.exe") 
+
+#Serve para abrir o browser Chrome.
+
+	os.remove(“arquivo.txt”)
+
+#Serve para apagar um arquivo.
+
+	os.system("start c:\\users\\marcelo.pugan\\downloads\\%DATE:~0,2%-%DATE:~3,2%-%DATE:~-2%")
+	
+#Serve para abrir a pasta com a data de atual.
+
+Obs.: quando direcionado ou citado pastas dentro de python(independente da IDE), é necessário usar duas barras “\\” ao invés de uma como no CMD.
+
+	os.system("taskkill /im code.exe /f")
+	
+#o comando é para a finalização do Visual Studio Code, podendo ser trocado por outro executável em questão.
+
+------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+10 - Criação de interface gráfica
+
+Para criação de interface gráfica em python, utilizaremos a biblioteca “tkinter”, nativa do python desde a versão 3.8, não necessitando de realizar a instalação com o comando “pip”, mas ainda necessitando do comando “import tkinter” nos códigos;
+
+Para criar uma janela simples, seguir o padrão importar a biblioteca, definir o objeto com a biblioteca, e no final, colocar esse objeto em loop, para manter a janela aberta.
+Como para criar uma janela simples:
+
+	Ex.: 	
+		Import tkinter
+
+		janela = tkinter.Tk()
+
+		janela.mainloop()
+
+Comandos para personalizar a janela criada:
+
+	Ex.:
+		janela.geometry(“300x200”)  # para definir o tamanho da janela em pixel, sendo X e Y respectivamente as medidas;
+
+		janela.title(“titulo do aplicativo”)  # para definir titulo; 
+
+		janela.configure(background=”#000”)  # para definir a cor de fundo, sendo usado hexadecimal para escrever a cor, também pode ser substituído por “bg”
+		janela.attributes(‘-fullscreen’, True) # para definir a janela cheia, mas é necessário a configurações de outros objetos na interface, como local dos botões e rótulos. 
+
+Para configurar texto na interface:
+
+Para a criação de textos ou descrições dentro da interface é necessário o uso do comando “Label” e dentro dele as especificações. 
+
+	Ex.: 
+		label = tkinter.Label(text=”texto do label”)
+
+Mas não bastando o comando acima, é necessário também, informar a posição do label, utilizando a definição X e Y;
+
+	Ex.:
+		label = tkinter.Label(text=”texto do label”)
+		label.place(x=120, y=100)
+
+		ou
+
+		label.place(relx=0.5, rely=0.4, anchor=tkinter.CENTER) 
+
+# sendo esse modelo, usado, quando a janela estiver em modo “fullscream”, os “relx” e “rely”, são adaptáveis a janela, enquanto que o comando “anchor=tkinter.CENTER”, mantem o objeto no centro.
+
+O comando Label, pode ser personalizado com comandos internos, para se adaptar ou se destacar dentro da interface;
+
+	Ex.: 
+		text=”texto do label”;
+
+		bg=”numero hexadecimal ou cor especifica” # para mostrar a cor de fundo;
+
+		fg=” numero hexadecimal ou cor especifica” # para mostrar a cor das letras;
+
+		font=numero inteiro # serve para definir o tamanha, mas também pode decidir o tipo de fonte quando especificado.
+			Ex.: 
+				label = Label(text="texto", font=("Arial", 20), bg="black" ,fg="red")
+label.pack(padx=20, pady=20)
+
+Adicionando Frames:
+
+Para a criação de Frames(janelas dentro das janelas), defina o objeto com o frame, e suas características:
+
+	Ex.: 
+		janela_frame = Frame(width=200, height=100)
+		janela_frame.place(x=25, y=25)
+
+Configurando botões:
+
+Para a criação de botões, é a mesma logico do Label, mas com o acréscimo de executar funções;
+
+	Ex.:
+		butao = Button()
+		butao.place(x=50, y=100)
+
+------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+11 - Criação e uso de automação(uso das bibliotecas “keyboard”, ”mouse” e “pyautogui”);
+
+Para uso dessas bibliotecas, realize as instalações: 
+	
+	Ex.:
+pip install keyboard
+pip install mouse
+pip install pyautogui
+
+E importe as bibliotecas em seus códigos:
+
+	Ex.: 
+		import keyboard
+		import mouse
+		import pyautogui
+
+Para os comandos há diferenças, que serão mostradas aqui:
+
+	11.1 – Comandos para uso da biblioteca “keyboard”:
+
+	Pressionar uma tecla:
+		keyboard.press(‘a’)
+		keyboard.release(‘a’)
+	combinação de comandos para pressionar uma tecla:
+		keyboard.press_and_release(‘a’)
+
+	combinação de comandos para pressionar mais de uma tecla:
+		keyboard.press_and_release(‘ctrl+alt+delete’)
+
+	comando para esperar entre comandos:
+		import keyboard
+		import time 
+
+		keyboard.press(‘w’)
+		time.sleep(3)
+		keyboard.release(‘w’)
+
+	Obs.: o comando “time.sleep(3)” foi usado para esperar por 3 segundos	
+
+	comando para reagir quando uma tecla for apertada:
+		
+while True:
+			if keyboard.is_pressed(‘q’):
+				print(“a tecla ‘q’ foi apertada, saindo...”)
+				break
+
+	Obs.: para o código identificar que uma tecla ou comando foi executado, ele tem que estar em loop (“while True”).
+
+	Exemplo de comando de monitoramento de múltiplas teclas:
+
+		Import keyboard
+
+		While True:
+			If keyboard.is_pressed(‘a’):
+				print(“Tecla ‘a’ pressionada.”)
+			elif keyboard.is_pressed(‘b’):
+				print(“Tecla ‘b’ pressionada.”)
+			elif keyboard.is_pressed(‘esc’):
+				print(“Tecla ‘esc’ pressionada, saindo...”)
+				break
 
 
-import pyautogui (para puxar a biblioteca após a instalação no CMD)
+	11.2 – Comandos para uso da biblioteca “mouse”:
+
+	Comando para clicar em uma posição específica:
+		
+		import mouse
+
+		x, y = 100, 200
+
+		mouse.click(x, y) 
+		
+		# outros exemplos com as posições definidas:
+
+		mouse.right_click(x, y)
+		mouse.double_click(x, y)
+		
+
+	11.3 – Comandos para uso da biblioteca “pyautogui”:
+import pyautogui
+
+# função para mover o mouse para a localização na tela
+
+pyautogui.moveTo(x= y=)
+
+	# Necessário colocar após os caracteres "x" e "y" a localização na tela (plano cartesiano)
+
+# função para clicar com o mouse na tela 
+
+pyautogui.click(x=número ,y=número) / também vale para a função "doubleClick" / "rightClick"
+
+	Obs.: pode ser necessário, usar antes a função "moveTo", para gerar a função "Click".
 
 # função para esperar o mouse por (4) segundos
+
 pyautogui.sleep(4)
 
-# função para mostrar a posição do mouse ns tela
+# função para mostrar a posição do mouse na tela
+
 print(pyautogui.position())
 
 # escreve, desde que dentro ("")
+
 pyautogui.write 
 
-# precionar a tecla(e manter a tecla precionada)
+# pressionar a tecla(e manter a tecla pressionada)
+
 pyautogui.keyDonw 
 
-# soltar a tecla qua antes foi precionada
+# soltar a tecla que antes foi pressionada
+
 pyautogui.keyUp 
 
-# precionar de forma rapida
+# pressionar de forma rápida 
+
 pyautogui.press
+	
+obs.: dentro dos ("",), após a virgula, ao usar o comando "presses=" seguido de um número, você pode definir a quantidade de vezes será pressionado.
+		
+Ex.: pyautogui.press("tab", presses=4)
 
 # tampo de pausa entre as funções(X = segundo)
+
 pyautogui.pause = X 
 
-# função para localiar figura na tela
+# para pressionar conjuntos de teclas simultaneamente
+
+Ex.: pa.hotkey("ctrl", "l")
+
+# função para localizar figura na tela
+
 pyautogui.locateOnScreen('colocar a figura aqui') 
 
-Obs.: caso ('The Pillow package is required to use this function.') essa erro apareça,
-utilize o codigo: pip install Pillow --upgrade no CMD, para corrigi-lo
+Obs.: caso ('The Pillow package is required to use this function.') esse erro apareça,
+utilize o código: pip install Pillow --upgrade no CMD, para corrigi-lo
 
 
-------Criando localizador em tempo real do mouse para uso de automação--------
+------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
-import tkinter as tk
-import pyautogui
+12 - Agendar tarefas: 
 
-def atualizar_posicao():
-    x, y = pyautogui.position()
-    posicao_label.config(text=f"Posição do Mouse: {x}, {y}")
-    posicao_label.after(100, atualizar_posicao)
+Para o agendamento de códigos em python, utilizando a biblioteca “schedule” e a biblioteca “time”, mas a instalação é apenas da biblioteca “schedule”.
 
-root = tk.Tk()
-root.title("Posição do Mouse")
-root.configure(bg='black')
+	pip install schedule 
 
-posicao_label = tk.Label(root, text="Posição do Mouse: ", font=("Arial", 14), bg='black', fg='white')
-posicao_label.pack(padx=20, pady=20)
+a biblioteca "schedule" serve para iniciar a atividade no momento requisitado, enquanto a biblioteca "time" serve para definir o momento
 
-atualizar_posicao()
+comando para executar repetidamente:
 
-root.mainloop()
+	import schedule
+	import time
 
-------Comando de Audio------- 
+	def tarefa():
+		print(“executando a tarefa”)
 
-necessário instalar as bibliotecas "pyaudio" e "speechrecognition" 
+	schedule.every(5).seconds.do(tarefa)  
 
-import speech_recognition as sr  #sistema para ativar o comando de voz
-import os #sistema para executar funções no computador
-import pyautogui as pag #sistema para executar automações no computador
+		# o número após “schedule.every” define durante quanto tempo irá rodar o loop;
+		# “seconds” para segundo / “minutes” para minutes / “hours” para horas / “days” para dias /”month” para meses;
+		# na posição de “seconds”, pode ser substituído por dias da semana: “monday”, “wednesday”, “friday”...
 
-def ouvir_microfone():
+	while True:
+		schedule.run_pending()
+		time.sleep(1) 
 
-    microfone = sr.Recognizer()
+comando para executar em um horário específico:
 
-    with sr.Microphone() as source:
+	import time
+	import schedule
 
-        microfone.adjust_for_ambient_noise(source)
+	def tarefa():
+		print(“executando tarefa agendado”)
 
-        print("diga alguma coisa: ")
+	schedule.every().day.at(“11:00”).do(tarefa)
 
-        audio = microfone.listen(source)
+	while True:
+		schedule.run_pending()
+		
+Obs.: não há a necessidade do uso do “time.sleep” para a finalização do código.
 
-    try:
+------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
-        frase = microfone.recognize_google(audio,language='pt-BR')
+13 - Editar planilhas:
 
-        print("você disse: " + frase)
+Para editar, copiar e colar, mover, e executar macros ou tabelas dinâmicas, é usado nesse manual a biblioteca “pywin32”.
 
-        if "navegador" in frase:
-            os.system("start Chrome.exe")
+Para realizar a instalação da biblioteca, execute o comando “pip install pywin32”, seja no terminal do VSC ou no CMD.
 
-        if "outlook" in frase:
-            os.system("start Outlook.exe") 
+	13.1 – Utilização da biblioteca: 
+
+	Para utilizar os comandos do pywin32, coloque o seguinte comando “import win32com.client” e após isso defina os seguintes códigos como mostrado no exemplo a seguir:
+
+	Ex.: 
+		
+		import win32com.client as w32
+
+		excel = w32.Dispatch('Excel.Application')   # Serve para definir a execução do excel;
+
+		excel.Visible = True  # Serve para tornar visível as automações que serão realizadas, caso, seja “= False” elas ficaram em segundo plano.
+
+		excel.DisplayAlerts = False  # Serve para evitar os avisos quando fecha uma planilha, como se deseja que salve ou algo similar;
+
+		workbook = excel.Workbooks.Add()  # serve para abrir uma planilha nova; 
+
+		workbook = excel.Workbook.Open('caminho/para/seu/arquivo.xlsx')  # serve para abrir uma planilha especificas;
+
+		worksheet = workbook.Sheets(1)  # para especificar a aba da planilha, sendo “1” a primeira;
+
+		worksheet = workbook.Sheets(“aba escrita”)  # é outro exemplo, mas é especificando a aba escrita;
+
+		workbook.Save()  # serve para salvar a alteração do arquivo;
+	
+		workbook.SaveAs('caminho/para/seu/arquivo.xlsx')  # serve para salvar a planilha em lugar especifico;
+
+		workbook.close()  # serve para fechar essa planilha, normalmente no final do código;
+
+		excel.Quit()  # serve para fechar o todo excel após a finalização dos comandos;
+
+ 
+
+
+			
+
+	
+
+ 
+
+------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+
+14 – Criação de um arquivo executável:
+
+# Caso você queira compartilhar seu arquivo, com alguém que não tenha python instalado em sua máquina, pode fazer isso, transformando o arquivo em .exe
+
+# primeiro vá no seu CMD como administrador e execute o seguinte comando para instalar o conversor:
+
+		pip install pyinstaller
+
+# após isso no CMD, com o pyinstaller tendo concluído a instalação, execute o seguinte comando:
+	
+		pyinstaller –onefile --noconsole "arquivo que você queira criar o executável"
+
+	Obs¹.:    O comando “--onefile” serve para criar todo o código em um único arquivo executável.
+		O comando “--noconsole” serve para, que o arquivo criado, não abra em conjunto uma janela do prompt ao executar
+
+		Obs¹ ².: O comando “--noconsole”, pode ativar o antivírus do Windows, e para criar o arquivo executável sem a janela do prompt, é necessário desativar o antivírus do Windows, durante a criação do executável.
+
+# Após isso, irá aparecer em sua área de trabalho duas pastas: "builder" e "dist".
+
+# Seu arquivo executável estará na pasta "dist", e você poderá compartilhar com outros para testar, os arquivos na pasta "builder" são os arquivos criados na conversão, você poderá exclui-los se preferir.
+
+
+Obs².: Caso aconteça o seguinte erro:
+
+	O termo 'bloco_de_notas2' não é reconhecido como nome de cmdlet, função, arquivo de script ou programa operável. Verifique a grafia do nome ou, se um caminho tiver 
+	sido incluído, veja se o caminho está correto e tente novamente.
+
+Solução 1:
+ 
+Execute os seguintes comandos:
+
+1 - Acesse o explorer, botão direito no meu computador, clique em "propriedades";
+2 - Clique em "Configuração avançadas do sistema";
+3 - Clique em "variável de ambiente...";
+4 - Na parte "Variáveis do sistema", procure a variável "Path" e clique em "Editar...";
+5 - Clique em "Novo" e coloque o seguinte caminho "C:\Program Files(x86)\Python\Python36-32\";
+6 - Clique em ok;
+7 - Reinicie o terminal (seja ele no CMD ou Visual Studio Code).
+
+Solução 2:
+
+1 - No terminal do VSC(Visual Studio Code);
+2 - Acesse a pasta onde se encontra o arquivo .py salvo;
+3 - Execute o seguinte comando: python -m PyInstaller --onefile (nome do arquivo .py).
+	obs.: importante que o "P" e "I" do pyinstaller estejam em caixa alta.
+
+------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+15 – Comando de e por áudio;
+
+Em python, há a possibilidade de executar comandos por áudio ou que o código responda com comandos falados
+
+Para que o código responda por vós, utilize a biblioteca “pyttsx3”, executando o comando “pip install pyttsx3”;
+
+Comando simples para falar:
+
+	Ex.: 
+		Import pyttsx
+
+		engine = pyttsx3.init()
+		engine.say(“olá mundo!”)
+		engine.runAndWait()
+
+No comando acima, é necessário o comando “engine = pyttsx3.init()” para iniciar o mecanismo de síntese de vóz;
+
+O comando “engine.say(“olá mundo!”)” fala o texto citado entre os parênteses, mas é necessário após isso o comando “engine.runAndWait()”, para que execute.
+
+Para configurar ou especificar a fala no comando:
+
+	Ex.:
+
+		Import pyttsx
+
+		engine = pyttsx3.init()
+		
+		engine.setProperty(‘volume’, 0.9)  # configura volume a 90%
+		engine.setProperty(‘rate’, 150)       # configura a velocidade para 150 palavras por minuto
+
+engine.say(“olá mundo!”)
+		engine.runAndWait()
 
 
 
-    except sr.UnknownValueError:
-        print("não fez sentido o que você disse")
 
-    return frase
 
-ouvir_microfone()       
 
-------agendar tarefas com python------
 
-Para criar funções que serão escutadas em horarios especificos com python sem a necessidade de usar o agendador de tarefas do windows(recomendado quando for usar em outro sistema operacional)
+------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
-utilize das bibliotecas "schedule" e "time".
-
-a biblioteca "schedule" serve para iniciar a atividade no momento requisitado, enquanto que a biblioteca "time" serve para definir o momento
-
-Exemplo: 
-
-import os
-import time
-import schedule
-import tkinter
-
-def tarefa():
-    print("teste 1 concluido")
-
-# Agendar a tarefa para ser executada todos os dias às 11 horas
-schedule.every().day.at("09:44").do(tarefa)
-
-# Executar o agendador em segundo plano
-while True:
-    schedule.run_pending()
-    time.sleep(1)
